@@ -1,10 +1,29 @@
-let character = 'Ravan';
-let age = 22;
-let isHandsome = true;
+//arrays
+let names = ['john', 'ravan', 'celine', 'katy'];
 
-age = 18;
+names.push('trish');
+// names.push(2013); -> you canot insert a number inside above array
+// names[1] = 'chen';
 
-const circle = (diametr : number) => {
-    return diametr * Math.PI;
+let mixed = ['chun-li', 13, 'john', 20, 'trish', 08, 143];
+
+mixed.push(2013);
+mixed.push('liza');
+mixed[0] = 3;
+
+// objects
+let ninja = {
+    name: 'John',
+    status: 'single',
+    age: 22
+};
+ninja.name = 'ravan';
+ninja.age = 45;
+// ninja.age = '22';
+// ninja.skilla = ['coding', 'listening'];
+
+ninja = {
+    name : 'ryun',
+    status: 'taken',
+    age: 22
 }
-console.log(circle(20));
