@@ -26,3 +26,5 @@ console.log(ninjaAny);
 ninjaAny = {name: true , age:34};
 console.log(ninjaAny);
 
+console.log("test");
+console.log("test1");
