@@ -1,14 +1,24 @@
-// Aliases
-type StringOrNum = string | number;
-type objWithName ={name: string, uid: StringOrNum};
+// sample 1
+let greet : (a: string, b: string) => void;
 
-const logDetails = (uid: StringOrNum, item: string) =>{
-    console.log(`${item} has a uid of ${uid}`);
+greet = (name: string, greeting : string) =>{
+    console.log(`${name} says ${greeting}`);
 }
 
-const greet = (user: objWithName) => {
-    console.log(`${user.name} say hello`);
+// sample 2
+let calc: (a: number, b : number, c: string) => number;
+
+calc = (numOne: number, numTwo: number, action: string) =>{
+
+    if(action === 'add'){
+        return numOne + numTwo;
+    }else{
+        return numOne - numTwo;
+    }
 }
-const greetAgain = (user: objWithName) => {
-    console.log(`${user.name} say hello`);
+//sample 3
+let logDetail: (obj: {name: string, age: number}) => void;
+
+logDetail = (ninja: {name: string, age: number}) => {
+    console.log(`${ninja.name} is ${ninja.age} years old.`)
 }
