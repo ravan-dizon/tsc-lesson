@@ -1,30 +1,21 @@
-// any type
+// function
 
-let age: any;
+let greet : Function ; 
+    
+// greet = 'hello';
 
-age = true;
-console.log(age);
+greet = () => {
+    console.log('helloo dabarkads');
+}
 
-age = 'hello';
-console.log(age);
+const add =(a: number, b: number, c: number | string = 10) => {
+    console.log(a + b );
+    console.log(c)
+}
+// add(13, '20');
+add(13, 20, 7);
 
-age = { name: 'superV'};
-console.log(age);
-
-let mixed: any[] = [];
-
-mixed.push(34);
-mixed.push('hello');
-mixed.push(true);
-console.log(mixed);
-
-let ninjaAny : {name : any, age: any};
-
-ninjaAny = {name: 'ivy', age:'23'};
-console.log(ninjaAny);
-
-ninjaAny = {name: true , age:34};
-console.log(ninjaAny);
-
-console.log("test");
-console.log("test1");
+const sum = (a: number, b : number):number => {//-> function that return only numbers
+    return a + b;
+}
+let result = sum(13, 20);

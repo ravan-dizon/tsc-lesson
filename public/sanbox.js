@@ -1,21 +1,17 @@
 "use strict";
-// any type
-let age;
-age = true;
-console.log(age);
-age = 'hello';
-console.log(age);
-age = { name: 'superV' };
-console.log(age);
-let mixed = [];
-mixed.push(34);
-mixed.push('hello');
-mixed.push(true);
-console.log(mixed);
-let ninjaAny;
-ninjaAny = { name: 'ivy', age: '23' };
-console.log(ninjaAny);
-ninjaAny = { name: true, age: 34 };
-console.log(ninjaAny);
-console.log("test");
-console.log("test1");
+// function
+let greet;
+// greet = 'hello';
+greet = () => {
+    console.log('helloo dabarkads');
+};
+const add = (a, b, c = 10) => {
+    console.log(a + b);
+    console.log(c);
+};
+// add(13, '20');
+add(13, 20, 7);
+const sum = (a, b) => {
+    return a + b;
+};
+let result = sum(13, 20);
