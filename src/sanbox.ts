@@ -1,21 +1,14 @@
-// function
+// Aliases
+type StringOrNum = string | number;
+type objWithName ={name: string, uid: StringOrNum};
 
-let greet : Function ; 
-    
-// greet = 'hello';
-
-greet = () => {
-    console.log('helloo dabarkads');
+const logDetails = (uid: StringOrNum, item: string) =>{
+    console.log(`${item} has a uid of ${uid}`);
 }
 
-const add =(a: number, b: number, c: number | string = 10) => {
-    console.log(a + b );
-    console.log(c)
+const greet = (user: objWithName) => {
+    console.log(`${user.name} say hello`);
 }
-// add(13, '20');
-add(13, 20, 7);
-
-const sum = (a: number, b : number):number => {//-> function that return only numbers
-    return a + b;
+const greetAgain = (user: objWithName) => {
+    console.log(`${user.name} say hello`);
 }
-let result = sum(13, 20);
