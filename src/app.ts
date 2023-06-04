@@ -1,35 +1,7 @@
-
-
 import { invoice } from './classes/invoice.js';
+import { ListTemplates } from './classes/listTemplates.js';
 import{ payment } from './classes/payment.js';
 import { HasFormatter } from './interface/HashFormatters.js';
-
-// let docOne: HasFormatter;
-// let docTwo: HasFormatter;
-
-// docOne = new invoice ('luigi', 'web work', 300);
-// docTwo = new payment ('mario', 'programming work', 5000);
-
-// let docs: HasFormatter[] = [];
-// docs.push(docOne);
-// docs.push(docTwo);
-
-// console.log(docs);
-
-// const invOne = new invoice('mario', 'work on the mario website', 1000);
-// const invTwo = new invoice('luigi', 'work on the luigi website', 1500);
-
-// // console.log(invOne, invTwo);
-
-// let invoices: invoice[] = [];
-// invoices.push(invOne);
-// invoices.push(invTwo);
-
-// // console.log(invoices);
-
-// invoices.forEach(inv => {
-//     console.log(inv.format());
-// });
 
 
 // const form = document.querySelector('form')!;
@@ -41,6 +13,9 @@ const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
 
+const ul = document.querySelector('ul')!;
+const list = new ListTemplates(ul);
+
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
@@ -50,29 +25,6 @@ form.addEventListener('submit', (e: Event) => {
     }else{
         doc = new payment(tofrom.value, details.value, amount.valueAsNumber);
     }
-    console.log(doc);
+    list.render(doc, type.value, 'end');
 });
 
-// //interfaces
-// interface isPerson{
-//     name: string;
-//     age: number;
-//     speak(a: string) : void;
-//     spend(a: number) : number;
-// }
-// const me : isPerson ={
-//     name: 'John Ravan',
-//     age: 22,
-//     speak(text: string) : void{
-//         console.log(text);
-//     },
-//     spend(amount: number): number{
-//         console.log('I spent', amount);
-//         return amount;
-//     }
-// }
-// const greetPerson = (person: isPerson) => {
-//     console.log('hello', person.name)
-// }
-// greetPerson(me);
-// console.log(me);
