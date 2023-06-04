@@ -12,39 +12,23 @@ const ul = document.querySelector('ul');
 const list = new ListTemplates(ul);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    //tuples
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === 'invoice') {
-        doc = new invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new invoice(...values);
     }
     else {
-        doc = new payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new payment(...values);
     }
     list.render(doc, type.value, 'end');
 });
-// GENERICS 
-const addUID = (obj) => {
-    let uid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign({}, obj), { uid });
-};
-let docOne = addUID({ name: 'John', age: 22 });
-console.log(docOne.name);
-//enums 
-var ResourceType;
-(function (ResourceType) {
-    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
-    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
-    ResourceType[ResourceType["FILM"] = 2] = "FILM";
-    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
-    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
-})(ResourceType || (ResourceType = {}));
-const docThree = {
-    uid: 1,
-    resourceType: ResourceType.BOOK,
-    data: { title: 'finding my self' }
-};
-const docFour = {
-    uid: 1,
-    resourceType: ResourceType.PERSON,
-    data: { name: 'John Ravan' }
-};
-console.log(docThree, docFour);
+// tuple
+let arr = ['john', 22, true];
+arr[0] = 'Ravan';
+arr[1] = 13;
+arr = [2013, false, 'trish'];
+let tup = ['shin', 23, true];
+tup[0] = 'ryu';
+tup[1] = 14;

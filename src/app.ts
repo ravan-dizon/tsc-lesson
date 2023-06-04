@@ -19,42 +19,25 @@ const list = new ListTemplates(ul);
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
+    //tuples
+    let values : [string, string, number];
+    values = [tofrom.value, details.value, amount.valueAsNumber];
+
     let doc :HasFormatter;
     if (type.value === 'invoice'){
-        doc = new invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new invoice(...values);
     }else{
-        doc = new payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new payment(...values);
     }
     list.render(doc, type.value, 'end');
 });
 
-// GENERICS 
+// tuple
+let arr = ['john', 22, true];
+arr[0] = 'Ravan';
+arr[1] = 13;
+arr = [2013, false, 'trish'];
 
-
-const addUID =<T extends object>(obj : T) =>{
-    let uid = Math.floor(Math.random() * 100);
-    return {...obj, uid};
-}
-let docOne = addUID({name : 'John', age: 22});
-
-console.log(docOne.name);
-
-//enums 
-enum ResourceType {BOOK, AUTHOR, FILM, DIRECTOR, PERSON}
-
-interface Resources <T> {
-    uid: number;
-    resourceType: ResourceType;
-    data: T;
-}
-const docThree: Resources<object> ={
-    uid : 1,
-    resourceType: ResourceType.BOOK,
-    data: {title: 'finding my self'}
-}
-const docFour: Resources<object> ={
-    uid : 1,
-    resourceType: ResourceType.PERSON,
-    data: {name : 'John Ravan'}
-}
-console.log(docThree, docFour);
+let tup: [string, number, boolean] = ['shin', 23, true];
+tup[0] = 'ryu';
+tup[1] = 14;
